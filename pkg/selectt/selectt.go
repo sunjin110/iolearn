@@ -16,8 +16,8 @@ import (
 // netcat -u localhost 1235
 // netcat -u localhost 1236
 
-// Server .
-func Server() {
+// UdpServer .
+func UdpServer() {
 
 	// TODO まず普通にselect system callを使用したi/oを実装してみる
 

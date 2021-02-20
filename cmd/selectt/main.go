@@ -9,6 +9,8 @@ func main() {
 
 	fmt.Println("selectt")
 
-	selectt.Server()
+	// netcat -u localhost 1235
+	// netcat -u localhost 1236
+	selectt.UdpServer()
 
 }
