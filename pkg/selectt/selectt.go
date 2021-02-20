@@ -1,4 +1,4 @@
-package syncnonblock
+package selectt
 
 import (
 	"fmt"
@@ -82,7 +82,8 @@ func Server() {
 
 		// fdsに設定されたソケットが読み込み可能になるまでまちます
 		// 1つ目の引数はfdの最大値+1にします
-		syscall.Select(maxFd+1, fds, nil, nil, nil)
+		_, err = syscall.Select(maxFd+1, fds, nil, nil, nil)
+		chk.SE(err)
 
 		log.Println("after fds is ", jsonutil.Marshal(fds))
 
