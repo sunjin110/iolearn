@@ -80,15 +80,17 @@ func TcpServer() {
 		if FD_ISSET(fds, fd2) {
 
 			// accept
-			syscall.Accept(fd2)
+			nfd2, sa, err := syscall.Accept(fd2)
+			chk.SE(err)
+			log.Println("sa2 is ", jsonutil.Marshal(sa))
 
 			var buf [1024]byte
 			// read
-			i, err := syscall.Read(fd2, buf[:])
+			i, err := syscall.Read(nfd2, buf[:])
 			chk.SE(err)
 			fmt.Println("fd2 msg is ", string(buf[:i]))
 			// write
-			syscall.Write(fd2, buf[:i])
+			syscall.Write(nfd2, buf[:i])
 		}
 
 	}
