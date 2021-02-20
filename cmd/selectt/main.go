@@ -11,6 +11,8 @@ func main() {
 
 	// netcat -u localhost 1235
 	// netcat -u localhost 1236
-	selectt.UdpServer()
+	// selectt.UdpServer()
+
+	selectt.TcpServer()
 
 }
