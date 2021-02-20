@@ -8,7 +8,10 @@ import (
 func main() {
 	go syncblock.Server()
 
-	time.Sleep(time.Second)
+	// time.Sleep(time.Second)
 
-	syncblock.Client("client1")
+	go syncblock.Client("client1")
+	go syncblock.Client("client2")
+
+	time.Sleep(3 * time.Second)
 }
